@@ -1,1 +1,2 @@
-# cricketx_backend
+# pushpa_rani
+pushpa Rani game backend
