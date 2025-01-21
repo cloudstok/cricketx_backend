@@ -1,7 +1,7 @@
 
-DROP DATABASE if EXISTS `pushpa_rani_game`;
-CREATE DATABASE IF NOT EXISTS `pushpa_rani_game`;
-use `pushpa_rani_game`;
+DROP DATABASE if EXISTS `cricketx_game`;
+CREATE DATABASE IF NOT EXISTS `cricketx_game`;
+use `cricketx_game`;
 
  CREATE TABLE IF NOT EXISTS `settlement`(
    `settlement_id` int NOT NULL AUTO_INCREMENT,
@@ -69,3 +69,19 @@ ALTER TABLE `settlement` ADD INDEX `lobby_id_index` (`lobby_id` ASC) INVISIBLE,A
 
 ALTER TABLE `bets` ADD COLUMN `auto_cashout` DECIMAL(10, 2) NULL DEFAULT NULL AFTER `bet_amount`;
 ALTER TABLE `settlement` ADD COLUMN `auto_cashout` DECIMAL(10, 2) NULL DEFAULT NULL AFTER `bet_amount`;
+
+
+CREATE TABLE `user_messages` (
+   `id` int NOT NULL AUTO_INCREMENT,
+   `user_id` varchar(255) NOT NULL,
+   `name` varchar(255) DEFAULT NULL,
+   `operator_id` varchar(255) DEFAULT NULL,
+   `msg` text,
+   `is_deleted` tinyint(1) DEFAULT '0',
+   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+   PRIMARY KEY (`id`),
+   KEY `user_id_index` (`user_id`),
+   KEY `operator_id_index` (`operator_id`) ,
+   KEY `created_at_index` (`created_at`)
+ ) ENGINE=InnoDB AUTO_INCREMENT=153 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
